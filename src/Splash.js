@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './App.css';
 
 class Splash extends Component {
     constructor(props){
@@ -10,9 +10,23 @@ class Splash extends Component {
     }
     
     render() {
+    
+
+        const styles = {
+            splashContainer: {
+                width: '100vw',
+                height: '100vh',
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                backgroundColor: 'pink'
+            },
+            
+        }
+        
         return(
-            <div>
-                spalsh
+            <div style={styles.splashContainer}>
+                <span className="megrimFont">* test</span>
             </div>
         );
     }
