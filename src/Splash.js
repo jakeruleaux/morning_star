@@ -2,49 +2,69 @@ import React, {Component} from 'react';
 import styled, { keyframes } from 'styled-components'
 import './App.css';
 
-const colorArray = [
-    "pink",
-    "blue",
-    "yellow",
-    "green",
-    "red",
-    "white"
+const backgroundColorArray = [
+    "#FF33FC",
+    "#33FFFF",
+    "#75FF33",
+    "#000000",
+    "#33A2FF",
+    "FF3333",
+    "#33FF42",
+    "#6833FF",
+    "#FF9933",
+    "#FFFFFF"
+]
+
+const fontColorArray = [
+    "#FFFFFF",
+    "#5e106d",
+    "#00ffff",
+    "#bf260a",
+    "#66ff66",
+    "#0033cc",
+    "#ffff00",
+    "#ff66ff",
+    "#00ccff",
+    "#000000"
 ]
 
 class Splash extends Component {
     constructor(props){
         super(props)
         this.state = {
-            backgroundColor: 'salmon'
+            backgroundColor: '',
+            fontColor: ''
         }
     }
     
     componentDidMount() {
-        console.log(colorArray, 'colorArr')
         let colorPos = 0;
-        let runTime = 0;
         const interval = setInterval(() => {
-            if(colorArray.length - 1 > colorPos) {
+            if(backgroundColorArray.length - 1 > colorPos) {
                 this.setState({
-                    backgroundColor : colorArray[colorPos]
+                    backgroundColor : backgroundColorArray[colorPos],
+                    fontColor : fontColorArray[colorPos]
                 });
                 colorPos++;
             } else {
                 this.setState({
-                    backgroundColor : colorArray[colorPos]
+                    backgroundColor : backgroundColorArray[colorPos],
+                    fontColor : fontColorArray[colorPos]
                 });
                 colorPos = 0;
             }
         }, 100);
+
         setTimeout(()=> {
             clearInterval(interval);
-        }, 600)
+        }, 1000);
     
     }
     
     render() {
 
         const backgroundColor = this.state.backgroundColor;
+        const fontColor = this.state.fontColor;
         console.log(backgroundColor, this.state.backgroundColor, 'bc in render')
 
         const background = keyframes`
@@ -63,6 +83,7 @@ class Splash extends Component {
                 background-color: red;
                 font-size: 1000px;
                 background-color: ${backgroundColor};
+                color: ${fontColor};
                 font-family: Megrim;
                 transition: all 1500ms ease;
         `;
