@@ -1,22 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Megrim&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Megrim&display=swap'); */
+
+@font-face {
+    font-family: 'Megrim';
+    src: local('Megrim'), url(./Fonts/Megrim-Regular.ttf) format('');
+}
 
 .megrimFont{
     font-family: 'Megrim'
-}
-
-.spashContainer {
-    background-color: red;
-    /* animation-name: background;
-    animation-duration: 5s; */
-}
-
-@keyframes background {
-    from {backgroundColor: red;}
-    to {backgroundClor: yellow;}
-}
-
-.spashContainer{
-    background-color: blue;
-    -webkit-transition: background-color 4s; /* For Safari 3.1 to 6.0 */
-    transition: background-color 4s;
 }
