@@ -2,17 +2,50 @@ import React, {Component} from 'react';
 import styled, { keyframes } from 'styled-components'
 import './App.css';
 
+const colorArray = [
+    "pink",
+    "blue",
+    "yellow",
+    "green",
+    "red",
+    "white"
+]
+
 class Splash extends Component {
     constructor(props){
         super(props)
         this.state = {
-            backgroundColor: ''
+            backgroundColor: 'salmon'
         }
     }
-    // <div style={styles.splashContainer} className="spashContainer">
-    //             <span className="megrimFont" style={styles.logo}>*</span>
-    //         </div>
+    
+    componentDidMount() {
+        console.log(colorArray, 'colorArr')
+        let colorPos = 0;
+        let runTime = 0;
+        const interval = setInterval(() => {
+            if(colorArray.length - 1 > colorPos) {
+                this.setState({
+                    backgroundColor : colorArray[colorPos]
+                });
+                colorPos++;
+            } else {
+                this.setState({
+                    backgroundColor : colorArray[colorPos]
+                });
+                colorPos = 0;
+            }
+        }, 100);
+        setTimeout(()=> {
+            clearInterval(interval);
+        }, 600)
+    
+    }
+    
     render() {
+
+        const backgroundColor = this.state.backgroundColor;
+        console.log(backgroundColor, this.state.backgroundColor, 'bc in render')
 
         const background = keyframes`
             from {background-color: red;}
@@ -29,8 +62,9 @@ class Splash extends Component {
                 justify-content: center;
                 background-color: red;
                 font-size: 1000px;
-                animation: ${background} 4s;
+                background-color: ${backgroundColor};
                 font-family: Megrim;
+                transition: all 1500ms ease;
         `;
         
         return(
