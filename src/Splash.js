@@ -8,9 +8,7 @@ class Splash extends Component {
             backgroundColor: ''
         }
     }
-    
     render() {
-    
 
         const styles = {
             splashContainer: {
@@ -19,14 +17,18 @@ class Splash extends Component {
                 position: 'absolute',
                 top: '0',
                 left: '0',
-                backgroundColor: 'pink'
+                display: 'flex',
+                justifyContent: 'center'
             },
+            logo: {
+                fontSize: '1000px',
+            }
             
         }
         
         return(
-            <div style={styles.splashContainer}>
-                <span className="megrimFont">* test</span>
+            <div style={styles.splashContainer} className="spashContainer">
+                <span className="megrimFont" style={styles.logo}>*</span>
             </div>
         );
     }
