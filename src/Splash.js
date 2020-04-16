@@ -81,15 +81,48 @@ class Splash extends Component {
                 display: flex;
                 justify-content: center;
                 background-color: red;
-                font-size: 1000px;
                 background-color: ${backgroundColor};
                 color: ${fontColor};
                 font-family: Megrim;
                 transition: all 1500ms ease;
         `;
+
+        const TitleText = styled.div `
+            font-size: 90px;
+            font-family: Megrim;
+            align-self: flex-end;
+            margin-bottom: 180px;
+            &:after {
+                content: '';
+                background: radial-gradient(rgba(83, 108, 117, 0.2) 0%, transparent 70%);
+                width: 600px;
+                height 100px;
+                position: absolute;
+                bottom: 75px;
+                left: 450px;
+            }
+        `;
+
+        const Logo = styled.span `
+            font-family: Megrim;
+            font-size: 1000px;
+            &:after {
+                content: '';
+                background: radial-gradient(rgba(83, 108, 117, 0.2) 0%, transparent 70%);
+                width: 600px;
+                height 100px;
+                position: absolute;
+                bottom: 75px;
+                left: 75px;
+            }
+        `;
         
         return(
-            <SplashContainer>*</SplashContainer>
+            <SplashContainer>
+                {/* <span style={{fontSize: '1000px'}}>*</span> */}
+                <Logo>*</Logo>
+                <TitleText>morningStar</TitleText>
+            </SplashContainer>
         );
     }
 }
