@@ -33,7 +33,8 @@ class Splash extends Component {
         super(props)
         this.state = {
             backgroundColor: '',
-            fontColor: ''
+            fontColor: '',
+            isRendered: false
         }
     }
     
@@ -57,19 +58,23 @@ class Splash extends Component {
 
         setTimeout(()=> {
             clearInterval(interval);
+            this.setState({ isRendered: true })
         }, 1000);
     
     }
     
     render() {
-
+        const isRendered = this.state.isRendered;
         const backgroundColor = this.state.backgroundColor;
         const fontColor = this.state.fontColor;
-        console.log(backgroundColor, this.state.backgroundColor, 'bc in render')
-
-        const background = keyframes`
-            from {background-color: red;}
-            to {background-color: yellow;}
+    
+        const fadeIn = keyframes `
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         `;
 
         const SplashContainer = styled.div `
@@ -88,6 +93,8 @@ class Splash extends Component {
         `;
 
         const TitleText = styled.div `
+            animation-name: ${fadeIn};
+            animation-duration: 4s;
             font-size: 90px;
             font-family: Megrim;
             align-self: flex-end;
@@ -119,7 +126,6 @@ class Splash extends Component {
         
         return(
             <SplashContainer>
-                {/* <span style={{fontSize: '1000px'}}>*</span> */}
                 <Logo>*</Logo>
                 <TitleText>morningStar</TitleText>
             </SplashContainer>
