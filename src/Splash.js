@@ -107,6 +107,7 @@ class Splash extends Component {
             transition: all 1500ms ease;
             background-repeat: no-repeat;
             background-size: cover;
+            overflow-Y: hidden
         `;
 
         const TitleText = styled.div `
