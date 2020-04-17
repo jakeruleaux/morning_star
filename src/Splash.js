@@ -1,17 +1,23 @@
 import React, {Component} from 'react';
 import styled, { keyframes } from 'styled-components'
 import './App.css';
+import Earth from './Images/earth.jpeg';
+import Sunset from './Images/sunset.jpeg';
+import Hylite from './Images/hylite.jpg';
 
 const backgroundColorArray = [
     "#FF33FC",
     "#33FFFF",
     "#75FF33",
+    `url(${Earth})`,
     "#000000",
     "#33A2FF",
     "FF3333",
+    `url(${Hylite})`,
     "#33FF42",
     "#6833FF",
     "#FF9933",
+    `url(${Sunset})`,
     "#FFFFFF"
 ]
 
@@ -59,7 +65,7 @@ class Splash extends Component {
         setTimeout(()=> {
             clearInterval(interval);
             this.setState({ isRendered: true })
-        }, 1000);
+        }, 1300);
     
     }
     
@@ -95,10 +101,12 @@ class Splash extends Component {
             display: flex;
             justify-content: center;
             background-color: red;
-            background-color: ${backgroundColor};
+            background: ${backgroundColor};
             color: ${fontColor};
             font-family: Megrim;
             transition: all 1500ms ease;
+            background-repeat: no-repeat;
+            background-size: cover;
         `;
 
         const TitleText = styled.div `
