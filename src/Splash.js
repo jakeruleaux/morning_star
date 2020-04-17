@@ -67,6 +67,15 @@ class Splash extends Component {
         const isRendered = this.state.isRendered;
         const backgroundColor = this.state.backgroundColor;
         const fontColor = this.state.fontColor;
+
+        const slide = keyframes `
+            from {
+                margin-left: 500px;
+            }
+            to {
+                // margin-left: 50px;
+            }
+        `;
     
         const fadeIn = keyframes `
             from {
@@ -78,49 +87,60 @@ class Splash extends Component {
         `;
 
         const SplashContainer = styled.div `
-                width: 100vw;
-                height: 100vh;
-                position: absolute;
-                top: 0;
-                left: 0;
-                display: flex;
-                justify-content: center;
-                background-color: red;
-                background-color: ${backgroundColor};
-                color: ${fontColor};
-                font-family: Megrim;
-                transition: all 1500ms ease;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            background-color: red;
+            background-color: ${backgroundColor};
+            color: ${fontColor};
+            font-family: Megrim;
+            transition: all 1500ms ease;
         `;
 
         const TitleText = styled.div `
             animation-name: ${fadeIn};
             animation-duration: 4s;
+            transition-timing-function: ease-out;
             font-size: 90px;
             font-family: Megrim;
             align-self: flex-end;
             margin-bottom: 180px;
             &:after {
+                animation-name: ${slide};
+                animation-duration: 5s;
+                transition-delay: 1s;
                 content: '';
                 background: radial-gradient(rgba(83, 108, 117, 0.2) 0%, transparent 70%);
-                width: 600px;
+                width: 650px;
                 height 100px;
                 position: absolute;
                 bottom: 75px;
-                left: 450px;
+                left: 550px;
             }
         `;
 
         const Logo = styled.span `
+            animation-name: ${slide};
+            animation-duration: 5s;
+            transition-delay: 1s;
+            transition-timing-function: linear;
             font-family: Megrim;
             font-size: 1000px;
             &:after {
+                animation-name: ${slide};
+                animation-duration: 5s;
+                transition-delay: 1s;
                 content: '';
                 background: radial-gradient(rgba(83, 108, 117, 0.2) 0%, transparent 70%);
-                width: 600px;
+                width: 650px;
                 height 100px;
                 position: absolute;
                 bottom: 75px;
-                left: 75px;
+                left: 150px;
             }
         `;
         
