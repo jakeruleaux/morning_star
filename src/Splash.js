@@ -31,6 +31,9 @@ const fontColorArray = [
     "#ffff00",
     "#ff66ff",
     "#00ccff",
+    "#33FF42",
+    "FF3333",
+    "#33FFFF",
     "#000000"
 ]
 
@@ -45,20 +48,20 @@ class Splash extends Component {
     }
     
     componentDidMount() {
-        let colorPos = 0;
+        let colorIndex = 0;
         const interval = setInterval(() => {
-            if(backgroundColorArray.length - 1 > colorPos) {
+            if(backgroundColorArray.length -1 > colorIndex) {
                 this.setState({
-                    backgroundColor : backgroundColorArray[colorPos],
-                    fontColor : fontColorArray[colorPos]
+                    backgroundColor : backgroundColorArray[colorIndex],
+                    fontColor : fontColorArray[colorIndex]
                 });
-                colorPos++;
+                colorIndex++;
             } else {
                 this.setState({
-                    backgroundColor : backgroundColorArray[colorPos],
-                    fontColor : fontColorArray[colorPos]
+                    backgroundColor : backgroundColorArray[colorIndex],
+                    fontColor : fontColorArray[colorIndex]
                 });
-                colorPos = 0;
+                colorIndex = 0;
             }
         }, 100);
 
@@ -75,11 +78,9 @@ class Splash extends Component {
         const fontColor = this.state.fontColor;
 
         const slide = keyframes `
+        
             from {
                 margin-left: 500px;
-            }
-            to {
-                // margin-left: 50px;
             }
         `;
     
@@ -90,6 +91,10 @@ class Splash extends Component {
             to {
                 opacity: 1;
             }
+        `;
+        // Prevent slide animation on mobile
+        const mobile = keyframes `
+            from {}
         `;
 
         const SplashContainer = styled.div `
@@ -107,7 +112,11 @@ class Splash extends Component {
             transition: all 1500ms ease;
             background-repeat: no-repeat;
             background-size: cover;
-            overflow-Y: hidden
+            overflow-Y: hidden;
+            @media only screen and (max-width: 1024px) {
+                flex-direction: column;
+                align-items: center;
+            }
         `;
 
         const TitleText = styled.div `
@@ -130,13 +139,43 @@ class Splash extends Component {
                 bottom: 75px;
                 left: 550px;
             }
+            @media only screen and (max-width: 1366px) and (max-height: 1024px) {
+                &:after {
+                    animation-name: ${mobile};
+                    content: none;
+            }
+            @media only screen and (max-width: 1024px) {
+                align-self: center;
+                &:after {
+                    animation-name: ${mobile};
+                    content: none;
+                    width: 650px;
+                    height 100px;
+                    position: absolute;
+                    bottom: 300px;
+                    left: 150px;
+                } 
+            }
+            @media only screen and (max-width: 414px) {
+                font-size: 60px;
+                &:after {
+                    content: none;
+                }
+            }
+            @media only screen and (max-height: 414px) and (orientation: landscape) {
+                font-size: 60px;
+                margin-top: 45px;
+                &:after {
+                    content: none;
+                }
+            }
         `;
 
         const Logo = styled.span `
             animation-name: ${slide};
             animation-duration: 5s;
             transition-delay: 1s;
-            transition-timing-function: linear;
+            transition-timing-function: ease;
             font-family: Megrim;
             font-size: 1000px;
             &:after {
@@ -151,6 +190,37 @@ class Splash extends Component {
                 bottom: 75px;
                 left: 150px;
             }
+            @media only screen and (max-width: 1366px) and (max-height: 1024px) {
+                &:after {
+                    animation-name: ${mobile};
+                    content: none;
+            }
+
+            @media only screen and (max-width: 1024px) {
+                max-height: 600px;
+                animation-name: ${mobile};
+                &:after {
+                    animation-name: ${mobile};
+                    content: none;
+                    width: 650px;
+                    height 100px;
+                    position: absolute;
+                    bottom: 300px;
+                    left: 150px;
+                }  
+            }
+            @media only screen and (max-width: 414px) {
+                &:after {
+                    content: none;
+                }
+            }  
+            @media only screen and (max-height: 414px) and (orientation: landscape) {
+                max-height: 475px;
+                margin-top: -35px;
+                &:after {
+                    content: none;
+                }
+            } 
         `;
         
         return(
