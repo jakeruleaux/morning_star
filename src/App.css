@@ -1,0 +1,10 @@
+/* @import url('https://fonts.googleapis.com/css?family=Megrim&display=swap'); */
+
+@font-face {
+    font-family: 'Megrim';
+    src: local('Megrim'), url(./Fonts/Megrim-Regular.ttf) format('');
+}
+
+.megrimFont{
+    font-family: 'Megrim'
+}
