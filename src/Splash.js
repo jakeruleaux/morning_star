@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components';
 import './App.css';
 import Earth from './Images/earth.jpeg';
 import Sunset from './Images/sunset.jpeg';
