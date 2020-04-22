@@ -8,8 +8,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons' ;
 library.add(faInstagram, faEnvelope);
 
 const Footer = () => {
-    const [ year, setYear] = React.useState('');
-
+    
     const Footer = styled.div `
         position: absolute;
         bottom: 0;
@@ -21,7 +20,7 @@ const Footer = () => {
 
     const FooterText = styled.p `
         font-family: Megrim;
-        color: #ededed;
+        color: #c9c9c9;
         margin-right: 20px;
     `;
     
@@ -29,31 +28,20 @@ const Footer = () => {
         return new Date().getFullYear();
     };
 
-    const instagramLink = () => {
-        return (
-            <a href="https://www.instagram.com/?hl=en" target="blank" />
-        );
-    };
-
-    const emailLink = () => {
-        // window.location.href = `mailto:themorningstarbus@gmail.com`;
-    }
-
     return (
         <Footer>
             <FooterText>© {getYear()} morningStar, LLC.</FooterText>
-            <FontAwesomeIcon 
-                icon={faInstagram}
-                style={{ color: '#ededed', fontSize: '30px', marginRight: '20px'}}
-            >
-            </FontAwesomeIcon>
+            <a href="https://www.instagram.com/morningstarbus/?hl=en" target="blank">
+                <FontAwesomeIcon 
+                    icon={faInstagram}
+                    style={{ color: '#ededed', fontSize: '30px', marginRight: '20px', marginTop: '5px' }}
+                />
+            </a>
             <a href="mailto:themorningstarbus@gmail.com?Subject=Hello%20again" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon 
                     icon={faEnvelope}
-                    style={{ color: '#ededed', fontSize: '30px', marginRight: '20px'}}
-                    onClick={emailLink()}
-                >
-                </FontAwesomeIcon>
+                    style={{ color: '#ededed', fontSize: '30px', marginRight: '20px', marginTop: '5px' }}
+                />
             </a>           
         </Footer>
     );
