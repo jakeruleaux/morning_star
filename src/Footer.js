@@ -22,6 +22,7 @@ const Footer = () => {
         font-family: Megrim;
         color: #c9c9c9;
         margin-right: 20px;
+        font-size: 10px;
     `;
     
     const getYear = () => {
@@ -34,13 +35,13 @@ const Footer = () => {
             <a href="https://www.instagram.com/morningstarbus/?hl=en" target="blank">
                 <FontAwesomeIcon 
                     icon={faInstagram}
-                    style={{ color: '#ededed', fontSize: '30px', marginRight: '20px', marginTop: '5px' }}
+                    style={{ color: '#ededed', fontSize: '30px', marginRight: '20px', marginBottom: '10px' }}
                 />
             </a>
             <a href="mailto:themorningstarbus@gmail.com?Subject=Hello%20again" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon 
                     icon={faEnvelope}
-                    style={{ color: '#ededed', fontSize: '30px', marginRight: '20px', marginTop: '5px' }}
+                    style={{ color: '#ededed', fontSize: '30px', marginRight: '20px', marginBottom: '10px' }}
                 />
             </a>           
         </Footer>
