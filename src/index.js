@@ -9,18 +9,18 @@ import Admin from './Admin';
 const routing = (
   <Router>
     <div>
-      <Route exact path="/" component={App} />
-      <Switch>
-        <Route exact path="/admin" component={Admin} />
-      </Switch>
+      <FirebaseContext.Provider value={new Firebase()}>
+        <Route exact path="/" component={App} />
+        <Switch>
+          <Route exact path="/admin" component={Admin} />
+        </Switch>
+      </FirebaseContext.Provider>
     </div>
   </Router>
 )    
 
 ReactDOM.render(
-  <FirebaseContext.Provider value={new Firebase()}>
-    routing
-  </FirebaseContext.Provider>,
+    routing,
   document.getElementById('root')
 );
 
