@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Firebase, { FirebaseContext } from './configs/index';
 import App from './App';
 import Admin from './Admin';
 
@@ -17,7 +18,9 @@ const routing = (
 )    
 
 ReactDOM.render(
-  routing,
+  <FirebaseContext.Provider value={new Firebase()}>
+    routing
+  </FirebaseContext.Provider>,
   document.getElementById('root')
 );
 
