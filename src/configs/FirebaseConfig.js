@@ -11,21 +11,8 @@ const config = {
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
 };
 
-class FirebaseConfig {
-  constructor() {
-    console.log(config, 'config')
-    app.initializeApp(config);
-
-    this.auth = app.auth();
-  }
-
-  handleCreateUserWithEmailAndPassword = (email, password) =>
-    this.auth.createUserWithEmailAndPassword(email, password);
-
-  handleSignInWithEmailAndPassword = (email, password) =>
-    this.auth.signInWithEmailAndPassword(email, password);
-
-  handleSignOut = () => this.auth.signOut();
-}
+const FirebaseConfig = () => {
+  app.initializeApp(config);
+};
 
 export default FirebaseConfig;

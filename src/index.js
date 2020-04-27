@@ -1,20 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Firebase, { FirebaseContext } from './configs/index';
 import App from './App';
-import Admin from './Admin';
+import Admin from './Admin/index';
 
 
 const routing = (
   <Router>
     <div>
-      <FirebaseContext.Provider value={new Firebase()}>
-        <Route exact path="/" component={App} />
-        <Switch>
-          <Route exact path="/admin" component={Admin} />
-        </Switch>
-      </FirebaseContext.Provider>
+      <Route exact path="/" component={App} />
+      <Switch>
+        <Route exact path="/admin" component={Admin} />
+      </Switch>
     </div>
   </Router>
 )    
