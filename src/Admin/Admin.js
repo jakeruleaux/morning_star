@@ -13,7 +13,7 @@ class Admin extends Component {
     }
 
     handleAdminLogin = event => {
-        event.preventDefault();
+        // event.preventDefault();
         const firebase = firebaseApp;
         console.log(firebase, 'fb in login', firebaseApp, firebase.firebase_.auth())
         const provider = new firebase.firebase_.auth.GoogleAuthProvider();  
