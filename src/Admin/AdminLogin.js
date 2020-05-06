@@ -2,12 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const AdminLogin = (props) => {
-    const [isAdmin, setIsAdmin] = React.useState(false);
 
-
-    const handleAdminLogin = () => {
-        // event.preventDefault();
-        setIsAdmin(true);
+    const handleAdminLogin = event => {
+        event.preventDefault();
         props.handleAdminLogin();
     };
 

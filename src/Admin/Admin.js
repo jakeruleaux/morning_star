@@ -6,40 +6,34 @@ import firebaseApp from '../configs/index';
 class Admin extends Component {
     constructor(props){
         super(props)
+        this.state = {
+            isAdmin: false
+        }
     }
 
-    componentDidMount() {
-        console.log(firebaseApp, firebaseApp.firebase, firebaseApp.app , "things")
-    }
-
-    handleAdminLogin = event => {
-        // event.preventDefault();
+    handleAdminLogin = () => {
         const firebase = firebaseApp;
-        console.log(firebase, 'fb in login', firebaseApp, firebase.firebase_.auth())
-        const provider = new firebase.firebase_.auth.GoogleAuthProvider();  
-        // debugger;     
+        const provider = new firebase.firebase_.auth.GoogleAuthProvider();     
         firebase.firebase_.auth().signInWithPopup(provider).then(function(result) {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            var token = result.credential.accessToken;
-            // The signed-in user info.
-            var user = result.user;
-            // ...
-          }).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            // ...
+            // const  token = result.credential.accessToken;
+            const user = result.user;
+          })
+          .then(user => {
+            // filter emails to prevent unauthorized login
+            console.log(user, '?')
+            if(user.email === 'jakeruleaux@gmail.com') {
+                this.setState({ isAdmin: true });
+                console.log(user, 'user', user.email, this.state.isAdmin)
+            }
+          })
+          .catch(function(error) {
+            const errorCode = error.code;
           });
-
     };
 
     render() {
-        const firebase = firebaseApp;
-        console.log(firebase, 'firebase config context in admin')
+        // const firebase = firebaseApp;
+        console.log(this.state.isAdmin, 'admin in render')
         return (
            <div>
                <AdminLogin handleAdminLogin={this.handleAdminLogin} />
