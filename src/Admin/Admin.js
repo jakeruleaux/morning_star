@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { isAdmin } from '../actions';
+import { connect } from 'react-redux';
 // import Firebase from '../configs/index';
 import AdminLogin from './AdminLogin';
 import firebaseApp from '../configs/index';
@@ -40,4 +42,11 @@ class Admin extends Component {
     }
 }
 
-export default Admin;
+const mapStateToProps = (state) => {
+    return {
+        isAdmin: state.isAdmin
+    };
+};
+
+
+export default connect(mapStateToProps, {isAdmin})(Admin);

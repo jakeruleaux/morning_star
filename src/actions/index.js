@@ -1,6 +1,6 @@
 import { IS_ADMIN } from './types';
 
-export const signIn = () => {
+export const isAdmin = () => {
     return {
         type: IS_ADMIN
     };
